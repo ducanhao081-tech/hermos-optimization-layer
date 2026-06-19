@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermos-optimization-layer"
+version = "0.3.2"
+description = "Governed self-evolution and runtime integrity for AI agents."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Hermos contributors"}]
+keywords = [
+  "ai-agent",
+  "memory",
+  "context-engineering",
+  "runtime-integrity",
+  "self-model",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.urls]
+Homepage = "https://github.com/ducanhao081-tech/hermos-optimization-layer"
+Repository = "https://github.com/ducanhao081-tech/hermos-optimization-layer"
+Issues = "https://github.com/ducanhao081-tech/hermos-optimization-layer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
