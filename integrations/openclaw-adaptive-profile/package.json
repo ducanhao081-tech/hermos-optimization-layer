@@ -1,0 +1,24 @@
+{
+  "name": "@hermos/openclaw-adaptive-profile",
+  "version": "0.1.0",
+  "description": "OpenClaw adapter for the Hermos Adaptive Profile Layer",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "skills"
+  ],
+  "peerDependencies": {
+    "openclaw": ">=2026.4.25"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.4.25",
+      "minGatewayVersion": "2026.4.25"
+    }
+  }
+}

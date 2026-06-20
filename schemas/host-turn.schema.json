@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ducanhao081-tech/hermos-optimization-layer/schemas/host-turn.schema.json",
+  "title": "Adaptive Profile Host Turn Signals",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "user_id"
+  ],
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "loop_type": {
+      "type": "string",
+      "default": "none"
+    },
+    "boundary_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "urgent": {
+      "type": "boolean",
+      "default": false
+    },
+    "high_emotion": {
+      "type": "boolean",
+      "default": false
+    },
+    "deep_work": {
+      "type": "boolean",
+      "default": false
+    },
+    "user_declined": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
