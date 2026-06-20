@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -111,7 +112,7 @@ console.log(JSON.stringify({
     completed = subprocess.run(
         ["node", str(runner)],
         cwd=tmp_path,
-        env={"FAKE_APL": str(fake_apl), "PATH": str(Path(shutil.which("node")).parent)},
+        env={**os.environ, "FAKE_APL": str(fake_apl)},
         check=True,
         capture_output=True,
         text=True,
