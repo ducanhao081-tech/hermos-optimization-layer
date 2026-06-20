@@ -1,11 +1,21 @@
-from examples.real_model_ab_demo import (
-    build_demo_profile,
-    build_endpoint,
-    build_plan,
-    interruption_checks,
-    render_blind_markdown,
-)
+import importlib.util
+import sys
+from pathlib import Path
+
 from hermos.adaptive_profile.prompt import render_profile_context
+
+DEMO_PATH = Path(__file__).resolve().parents[1] / "examples" / "real_model_ab_demo.py"
+DEMO_SPEC = importlib.util.spec_from_file_location("hermos_real_model_ab_demo", DEMO_PATH)
+assert DEMO_SPEC is not None and DEMO_SPEC.loader is not None
+DEMO = importlib.util.module_from_spec(DEMO_SPEC)
+sys.modules[DEMO_SPEC.name] = DEMO
+DEMO_SPEC.loader.exec_module(DEMO)
+
+build_demo_profile = DEMO.build_demo_profile
+build_endpoint = DEMO.build_endpoint
+build_plan = DEMO.build_plan
+interruption_checks = DEMO.interruption_checks
+render_blind_markdown = DEMO.render_blind_markdown
 
 
 def test_demo_profile_renders_expected_style():
