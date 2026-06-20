@@ -22,6 +22,8 @@ not an official NousResearch project or an official Hermes Agent release.
 - A completion gate that distinguishes verification attempts from passing
   verification.
 - Optional JSONL evidence records with no implicit home-directory writes.
+- Optional interaction-preference onboarding with progressive, context-gated
+  follow-up questions.
 
 ## Why this is different
 
@@ -110,6 +112,47 @@ loop.observe({
 assert loop.on_turn(completion_claimed=True).completion_check.can_complete
 ```
 
+Adaptive Profile Layer:
+
+```bash
+hermos-apl skip --store ./apl-data --user local-user --json
+hermos-apl observe \
+  --store ./apl-data \
+  --user local-user \
+  --event '{"effective":true}' \
+  --json
+hermos-apl next-question \
+  --store ./apl-data \
+  --user local-user \
+  --progressive \
+  --json
+```
+
+See [docs/ADAPTIVE_PROFILE.md](docs/ADAPTIVE_PROFILE.md) for the CLI contract
+and thin-adapter integration loop.
+
+Cross-agent adapters:
+
+- MCP stdio: `hermos-apl mcp --store /absolute/path/to/apl-data`
+- Hermos subject sandbox:
+  `integrations/hermos_sandbox/adapter.py`
+- OpenClaw Plugin + packaged Skill:
+  `integrations/openclaw-adaptive-profile/`
+- Standalone Agent Skill: `skills/adaptive-profile/`
+- Public schemas: `schemas/host-turn.schema.json` and
+  `schemas/observation.schema.json`
+
+See [docs/CROSS_AGENT_ADAPTERS.md](docs/CROSS_AGENT_ADAPTERS.md).
+
+Real-model blind A/B demo:
+
+```bash
+python examples/real_model_ab_demo.py --dry-run
+python examples/real_model_ab_demo.py
+```
+
+See [docs/REAL_MODEL_EXPERIMENT.md](docs/REAL_MODEL_EXPERIMENT.md).
+
 ## Privacy boundary
 
 The repository intentionally contains no real user memory, conversation logs,
@@ -121,10 +164,11 @@ See [docs/PRIVACY_BOUNDARY.md](docs/PRIVACY_BOUNDARY.md).
 
 ## Status
 
-Version `0.3.2-alpha` is a clean extraction of the existing Hermos research
-implementation. It has local deterministic tests, but it has not yet completed
-long-running real-model evaluation or a clean adapter against the latest Hermes
-Agent main branch.
+Version `0.5.0-alpha` adds host-neutral lifecycle mapping, MCP stdio, a formal
+Hermos subject-sandbox adapter, an OpenClaw Plugin, and a portable Agent Skill.
+It has deterministic, current-installed-OpenClaw, and directional real-model
+blind A/B validation. It has not yet completed long-running multi-user
+evaluation or production gateway rollout.
 
 ## License
 

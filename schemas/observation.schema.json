@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ducanhao081-tech/hermos-optimization-layer/schemas/observation.schema.json",
+  "title": "Adaptive Profile Structured Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "effective": {
+      "type": "boolean",
+      "default": true
+    },
+    "dimension": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "string",
+        "boolean"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "signal": {
+      "type": "string"
+    }
+  },
+  "dependentRequired": {
+    "dimension": [
+      "value"
+    ],
+    "value": [
+      "dimension"
+    ]
+  }
+}

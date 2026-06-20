@@ -1,0 +1,64 @@
+{
+  "id": "adaptive-profile",
+  "name": "Adaptive Profile",
+  "description": "Portable interaction-preference onboarding and progressive adaptation.",
+  "version": "0.1.0",
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "adaptive_profile"
+    ]
+  },
+  "skills": [
+    "./skills/adaptive-profile"
+  ],
+  "uiHints": {
+    "command": {
+      "label": "APL command",
+      "placeholder": "hermos-apl",
+      "help": "Executable command for the installed Hermos Adaptive Profile Layer."
+    },
+    "store": {
+      "label": "Profile store",
+      "placeholder": "/absolute/path/to/apl-data",
+      "help": "Explicit local directory for hashed preference-profile JSON files."
+    },
+    "injectPrompt": {
+      "label": "Inject profile context",
+      "help": "Requires plugins.entries.adaptive-profile.hooks.allowPromptInjection=true."
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "command": {
+        "type": "string",
+        "default": "hermos-apl"
+      },
+      "store": {
+        "type": "string"
+      },
+      "injectPrompt": {
+        "type": "boolean",
+        "default": false
+      },
+      "timeoutMs": {
+        "type": "integer",
+        "minimum": 1000,
+        "maximum": 30000,
+        "default": 5000
+      },
+      "userIdPrefix": {
+        "type": "string",
+        "default": "openclaw:"
+      }
+    }
+  }
+}

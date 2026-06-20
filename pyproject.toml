@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hermos-optimization-layer"
-version = "0.3.2"
+version = "0.5.0"
 description = "Governed self-evolution and runtime integrity for AI agents."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -28,6 +28,9 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
 ]
 dependencies = []
+
+[project.scripts]
+hermos-apl = "hermos.adaptive_profile.cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.9"]
