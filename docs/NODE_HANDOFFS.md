@@ -195,9 +195,11 @@
     accepted clean baseline and survive the normal reset flow.
   - The 64-file baseline reset completed with `12/12 fixtures passed`, and the
     post-reset formal runner completed with `15 passed`.
+  - A directional real-model blind A/B run completed with eight successful
+    cloud-model generations and five of five interruption guardrails passing.
 - Next:
-  - Run real-model quality and interruption-rate experiments.
-  - Publish only after user approval.
+  - Expand evaluation to repeated sessions and multiple preference profiles.
+  - Merge and publish after public review.
 - Risks and boundaries:
   - The live Hermos and OpenClaw gateways remain unchanged.
   - Real-model product-quality validation remains separate from deterministic

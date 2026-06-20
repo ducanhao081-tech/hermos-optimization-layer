@@ -11,6 +11,10 @@
 - Added packaged and standalone Agent Skills.
 - Added cross-agent integration guidance for middleware, function-tool, MCP,
   Skill, and shell hosts.
+- Added a provider-neutral blind A/B demo for real-model interaction-quality
+  checks, with OpenAI-compatible, Anthropic-compatible, and local Ollama modes.
+- Completed a directional eight-call cloud-model run using synthetic prompts;
+  the interruption guardrails passed in all five tested contexts.
 
 ## 0.4.0-alpha - 2026-06-20
 

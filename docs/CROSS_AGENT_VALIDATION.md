@@ -5,7 +5,7 @@ Date: 2026-06-20
 ## Python and protocol
 
 - Ruff: passed.
-- Full pytest suite: 38 passed after release-version finalization.
+- Full pytest suite: 43 passed after adding the real-model experiment harness.
 - Python syntax compilation: passed.
 - MCP initialize, tool list, tool calls, and raw-observation rejection: passed.
 - JSON schemas and OpenClaw manifests parse as valid JSON.
@@ -75,7 +75,21 @@ contains the plugin entry, manifest, package metadata, and packaged Skill.
   fields.
 - Preferences remain advisory and cannot change mandatory safety boundaries.
 
+## Directional real-model experience run
+
+- Model: `deepseek-v4-flash`.
+- Four synthetic scenarios were run in baseline and APL-adapted conditions:
+  eight successful model generations total.
+- Temperature was fixed at `0.2`; A/B labels were randomized and the answer
+  key was stored separately from the human-facing report.
+- All five progressive-question interruption checks passed, including
+  high-emotion, deep-work, urgent, and explicit-decline suppression.
+- No private conversation, memory, credential, or production data was sent.
+- Human review judged the blind response set suitable to proceed with public
+  review. The run is directional and does not claim statistical significance.
+
 ## Remaining work
 
-- Run real-model quality and interruption-rate experiments.
-- Decide when to publish the locally committed 0.5.0-alpha changes.
+- Expand real-model evaluation to repeated 20-40 turn sessions and multiple
+  preference profiles.
+- Complete public review and decide when to merge the 0.5.0-alpha release.

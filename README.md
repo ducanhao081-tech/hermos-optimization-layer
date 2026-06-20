@@ -144,6 +144,15 @@ Cross-agent adapters:
 
 See [docs/CROSS_AGENT_ADAPTERS.md](docs/CROSS_AGENT_ADAPTERS.md).
 
+Real-model blind A/B demo:
+
+```bash
+python examples/real_model_ab_demo.py --dry-run
+python examples/real_model_ab_demo.py
+```
+
+See [docs/REAL_MODEL_EXPERIMENT.md](docs/REAL_MODEL_EXPERIMENT.md).
+
 ## Privacy boundary
 
 The repository intentionally contains no real user memory, conversation logs,
@@ -157,8 +166,9 @@ See [docs/PRIVACY_BOUNDARY.md](docs/PRIVACY_BOUNDARY.md).
 
 Version `0.5.0-alpha` adds host-neutral lifecycle mapping, MCP stdio, a formal
 Hermos subject-sandbox adapter, an OpenClaw Plugin, and a portable Agent Skill.
-It has deterministic and current-installed-OpenClaw validation, but it has not
-yet completed long-running real-model evaluation or production gateway rollout.
+It has deterministic, current-installed-OpenClaw, and directional real-model
+blind A/B validation. It has not yet completed long-running multi-user
+evaluation or production gateway rollout.
 
 ## License
 
