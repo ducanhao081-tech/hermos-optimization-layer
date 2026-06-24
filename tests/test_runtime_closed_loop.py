@@ -13,6 +13,8 @@ from hermos.runtime_closed_loop import (
     RuntimeClosedLoopLayer,
     TaskProfile,
     TaskType,
+    render_runtime_version_context,
+    runtime_version_manifest,
 )
 
 # ═══════════════════════════════════════════════
@@ -42,6 +44,21 @@ def _make_event(intent, index=0):
     """构造一个已归一化的事件（直接测试 state/detectors 用）"""
     from hermos.runtime_closed_loop.events import ToolEvent
     return ToolEvent(index=index, intent=intent, tool_name="test")
+
+
+def test_runtime_version_manifest_reports_component_versions():
+    manifest = runtime_version_manifest(loaded=True)
+
+    assert manifest["hermos_optimization_layer"] == "0.5.0"
+    assert manifest["hermos_architecture"] == "0.3.2"
+    assert manifest["runtime_closed_loop"] == "0.4.0"
+    assert manifest["runtime_loop_schema"] == 2
+    assert manifest["runtime_loop_loaded"] is True
+
+    context = render_runtime_version_context()
+    assert "Hermos optimization layer: v0.5.0" in context
+    assert "Runtime Closed Loop: v0.4.0" in context
+    assert "Runtime Loop loaded: true" in context
 
 
 # ═══════════════════════════════════════════════

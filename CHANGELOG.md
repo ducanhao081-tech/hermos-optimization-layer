@@ -2,6 +2,12 @@
 
 ## 0.5.0-alpha - 2026-06-20
 
+- Synced the Runtime Closed Loop version-awareness manifest for the
+  `0.5.0-alpha` line: Hermos optimization layer `v0.5.0`, Hermes Agent package
+  fallback `v0.12.0`, Hermos architecture `v0.3.2`, Runtime Closed Loop
+  `v0.4.0`, schema `v2`, release date `2026-06-23`.
+- Added a compact runtime version context renderer so hosts can answer version
+  questions from an explicit loaded-state manifest instead of old chat context.
 - Added explicit host-turn and observation schemas.
 - Added a host-neutral lifecycle adapter and system-context injector.
 - Added a formal Hermos subject-sandbox adapter and regression runner.

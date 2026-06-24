@@ -112,6 +112,15 @@ loop.observe({
 assert loop.on_turn(completion_claimed=True).completion_check.can_complete
 ```
 
+Runtime version manifest:
+
+```python
+from hermos.runtime_closed_loop import runtime_version_manifest
+
+manifest = runtime_version_manifest(loaded=True)
+assert manifest["runtime_closed_loop"] == "0.4.0"
+```
+
 Adaptive Profile Layer:
 
 ```bash
@@ -166,9 +175,12 @@ See [docs/PRIVACY_BOUNDARY.md](docs/PRIVACY_BOUNDARY.md).
 
 Version `0.5.0-alpha` adds host-neutral lifecycle mapping, MCP stdio, a formal
 Hermos subject-sandbox adapter, an OpenClaw Plugin, and a portable Agent Skill.
-It has deterministic, current-installed-OpenClaw, and directional real-model
-blind A/B validation. It has not yet completed long-running multi-user
-evaluation or production gateway rollout.
+It also syncs the Runtime Closed Loop version-awareness manifest: Hermos
+optimization layer `v0.5.0`, Hermos architecture `v0.3.2`, Runtime Closed Loop
+`v0.4.0`, schema `v2`, release date `2026-06-23`. It has deterministic,
+current-installed-OpenClaw, and directional real-model blind A/B validation. It
+has not yet completed long-running multi-user evaluation or production gateway
+rollout.
 
 ## License
 
